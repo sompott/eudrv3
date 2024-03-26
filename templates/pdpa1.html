@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUDR</title>
+    <!-- เรียกใช้ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/2.3.2/signature-pad.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<nav class="navbar navbar-light bg-light" style="box-shadow: 0 8px 6px -6px black;">
+    <div class="container-fluid d-flex justify-content-start align-items-center">
+        <a class="navbar-brand" href="/">
+            <img src="{{ url_for('static', filename='img3.jpg') }}" alt="Your Image" class="responsive-img" style="max-width: 270px;">
+        </a>
+    </div>
+</nav>
+<body>
+    <div class="container mt-5">
+        <form id="data-form" action="/submit-form-pdpa1" method="post">
+
+            <img src="{{ url_for('static', filename='img.jpg') }}" alt="Your Image" class="responsive-img" id="ttn" name="ttn"><br><br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เนื่องจาก บริษัท ทองไทยรับเบอร์ จำกัด และ บริษัทในเครือ ได้แก่ บริษัท แกรนด์รับเบอร์ จำกัด             
+                บริษัท ทองไทย เทคนิคอล รับเบอร์ จำกัด บริษัท สินทองไทย รับเบอร์ จำกัด และบริษัท ทีทีเอ็น รับเบอร์ จำกัด 
+                สำนักงานตั้งอยู่ที่เลขที่ 984/51-52 ถนนสุขุมวิท 71 แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 
+                เป็นผู้ประกอบธุรกิจผลิตและส่งออกยางแผ่นรมควัน ยางแท่ง น้ำยางข้น ผลิตภัณฑ์ยางพาราไปยังต่างประเทศ</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากสหภาพยุโรป ได้ประกาศใช้กฎหมายว่าด้วยสินค้าที่ปลอดจากการตัดไม้ทำลายป่า  ซึ่งกำหนดให้บริษัทต้องแจ้งพิกัดตำแหน่ง (จีพีเอส) 
+                ของสวนยางพาราทั้งหมดที่ขายยางพาราให้แก่บริษัทเพื่อให้แน่ใจว่าสวนยางพาราเหล่านั้นไม่ได้ทำลายป่าธรรมชาติ 
+                และกำหนดให้บริษัทต้องนำส่งหนังสือรับรองและสถานะของสวนยางพาราที่ออกโดยการยางแห่งประเทศไทย (กยท.)
+                หรือหน่วยงานราชการที่เกี่ยวข้อง ที่รับรองว่าสวนยางพาราที่ขายยางพาราให้แก่บริษัท มีการครอบครองที่ดินสวนยางพาราถูกต้องตามกฏหมาย</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การที่บริษัทสามารถส่งออกยางพาราไปยัง สหภาพยุโรป บริษัทจึงจำเป็นต้องเก็บรวบรวม ใช้ เปิดเผยและโอนข้อมูลของท่านซึ่งเป็นเกษตรกรที่ขายยางพารา
+                ให้แก่บริษัทโดยบริษัทจะเก็บรวบรวมข้อมูลดังกล่าวผ่านทางเว็บพอร์ทัลของบริษัทคือ georubber.net เพื่อระบุพิกัดตำแหน่งของสวนยางพาราของท่านและเก็บ
+                รวบรวมข้อมูลของท่านซึ่งประกอบด้วยข้อมูลบัตรประชาชน เอกสารสิทธิ์ และสมุดทะเบียนเกษตรกรของท่าน  รวมถึงข้อมูลสวนยางของท่าน 
+                แล้วส่งพิกัดตำแหน่งสวนยางพาราและข้อมูลของท่านพร้อมกับปริมาณยางพาราที่บริษัทซื้อจากท่านส่งให้ลูกค้า 
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ดังนั้น เพื่อให้ท่านสามารถแจ้งพิกัดตำแหน่งสวนยางพาราและข้อมูลของท่านผ่านเว็บพอร์ทัล georubber.net 
+                ของบริษัทและเพื่อให้บริษัทสามารถบริหารและจัดการข้อมูลพิกัดตำแหน่งสวนยางพาราและข้อมูลของท่านได้โดยถูกต้องตามกฎหมายไทย 
+                บริษัทจึงขอความร่วมมือมายังท่านดังต่อไปนี้
+            </p>
+            
+            <div class="mb-3">
+                <label class="form-check-label">
+                    กรุณาทำเครื่องหมายหน้าข้อเพื่อยืนยันการเข้าใจ และยินยอมให้ข้อมูลแก่บริบริษัท
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="pdpa1" id="pdpa1">
+                    <label class="form-check-label" for="pdpa1">             
+                        ท่านรับทราบและยินยอมให้บริษัทเก็บรวบรวม เปิดเผยข้อมูลส่วนบุคคลของท่าน </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="pdpa2" id="pdpa2">
+                    <label class="form-check-label" for="pdpa2">
+                        ท่านรับทราบและให้ความยินยอมว่าให้บริษัทเก็บรวบรวม เปิดเผย ข้อมูลของท่านและข้อมูลอื่นที่เกี่ยวกับท่านดังต่อไปนี้เท่าที่
+                        จำเป็นต่อการประกอบธุรกิจของบริษัทและตามนโยบายความเป็นส่วนตัวของบริษัทและเพื่อวัตถุประสงค์ที่กำหนดไว้เท่านั้น กล่าวคือ</label>
+                </div>
+            </div>
+            <div><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ก)	พิกัดตำแหน่งจีพีเอสของสวนยางพารา<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ข)	ปีที่ปลูกต้นยางพารา<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ค)	สำเนาบัตรประชาชนเจ้าของสวนยางพารา<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ง)	ปริมาณยางพาราจากแต่ละสวนยางพารา<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(จ)	ขนาดพื้นที่ของสวนยางพารา<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ฉ)	สำเนาหลักฐานการใช้ประโยชน์ที่ดิน เช่น โฉนด สมุดกองทุนสงเคราะห์การทำสวนยาง สมุดประจำตัวเกษตกรชาวสวนยาง สมุดทะเบียนเกษตรกร<br>
+                </p>
+                <img src="{{ url_for('static', filename='img2.jpg') }}" alt="Your Image" class="responsive-img"><br><br>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="pdpa3" id="pdpa3">
+                    <label class="form-check-label" for="pdpa3">             
+                        ท่านรับทราบและให้ความยินยอมให้บริษัทสามารถเปิดเผยข้อมูลของท่านไปยังประเทศอื่นเพื่อวัตถุประสงค์ที่กำหนดไว้ 
+                        โดยก่อนการโอนข้อมูลส่วนบุคคลของท่านไปยังประเทศอื่นบริษัทจะดำเนินการเพื่อให้แน่ใจว่าบริษัทมีมาตรการป้องกันความปลอดภัย
+                        ของข้อมูลที่เพียงพอหรือในระดับที่สูงกว่ามาตรการที่กำหนดไว้ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคลของประเทศไทย </label>
+                </div>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หากท่านมีข้อสงสัยหรือข้อเสนอแนะเกี่ยวกับข้อมูลส่วนบุคคลของท่านหรือหนังสือยินยอมฉบับนี้หรือต้องการยื่นคำร้องเรียนต่อบริษัท 
+                    ท่านสามารถติดต่อเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคลหรือเจ้าหน้าที่อื่นที่เกี่ยวข้องของบริษัทดังต่อไปนี้
+                </p>
+            </div>
+            <div >
+                <div class="slightly-moved-tex"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ชื่อ คุณซือชิง เชียน&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ผู้จัดการด้านความรับผิดชอบต่อสังคมและสิ่งแวดล้อม) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    เบอร์โทรศัพท์&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(02) 390-2051 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    อีเมล์&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eudr@tongthai.co.th <br></p>
+                </div>
+                    <p class="slightly-moved-text">บริษัทขอขอบคุณท่านเป็นอย่างยิ่งที่กรุณาให้ความร่วมมือและให้ความยินยอมตามที่บริษัทขอมาข้างต้น <br></p>
+                    <div ><p class="slightly-moved-text">
+                    บริษัท ทองไทยรับเบอร์ จำกัด			บริษัท แกรนด์รับเบอร์ จำกัด <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บริษัท ทองไทย เทคนิคอล รับเบอร์ จำกัด 	บริษัท สินทองไทย รับเบอร์ จำกัด <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บริษัท ทีทีเอ็น รับเบอร์ จำกัด <br></p></div>
+    
+                    <p class="slightly-moved-text">ข้าพเจ้าในฐานะเจ้าของข้อมูลส่วนบุคคลรับทราบ ตกลง และให้ความยินยอมดังกล่าวข้างต้นทุกประการ <br></p>
+            </div>
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="full-name" class="form-label">ชื่อและนามสกุล Name of Farmer :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="text" class="form-control" id="full-name" name="full-name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <div>
+                            <label for="num" class="form-label mb-0 mr-2">รหัสเอกสาร &nbsp;&nbsp;&nbsp;VD-&nbsp;&nbsp;</label>
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" id="num" name="num" required>
+                        </div>
+                        <div>
+                            <label for="num1" class="form-label mb-0 mr-2">&nbsp;&nbsp;&nbsp;&nbsp;-PDPA-&nbsp;&nbsp;</label>
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" id="num1" name="num1" required>
+                        </div>
+                    </div>  
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="photo" class="form-label">สำเนาบัตรประชาชน</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="file" class="form-control" id="photo" name="photo">
+                    </div>
+                </div>
+            </div><br><br>
+            <canvas name="signature" id="signature" width="400" height="200"></canvas>
+                    <br>
+                    <div class="buttons-container"> 
+                        <button id="submit-bu" type="button" class="btn btn-primary btn-secondary" >บันทึกลายเซ็น</button>
+                        <button id="clear-button" type="button" class="btn btn-primary btn-danger">ลบลายเซ็น</button>
+    
+                    </div>
+                    
+                    <div class="text-center">
+                        <br><br><br>
+                        <button id="submit-button" type="submit" class="btn btn-primary btn-lg btn-block btn-purple " style="width: 50%;">ยืนยันการส่งข้อมูล</button>
+                    </div>
+
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <!-- เรียกใช้ Bootstrap JS และ Popper.js เพื่อให้สามารถใช้งานส่วนที่ต้องการของ Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Signature Pad
+        var canvas = document.getElementById('signature');
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'black',
+            minWidth: 1,
+            maxWidth: 3
+        });
+
+        // ปรับขนาด canvas เมื่อเกิดการเปลี่ยนขนาดหน้าต่าง
+        window.addEventListener('resize', resizeCanvas);
+
+        function resizeCanvas() {
+            var ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            signaturePad.clear(); // เคลียร์ลายเซ็นเมื่อขนาด canvas เปลี่ยน
+        }
+
+        // เรียกฟังก์ชัน resizeCanvas เพื่อปรับขนาด canvas เมื่อโหลดหน้าเว็บ
+        resizeCanvas();
+
+        document.getElementById('clear-button').addEventListener('click', function () {
+            signaturePad.clear();
+        });
+        document.getElementById('submit-bu').addEventListener('click', function () {
+    // Get the signature data URL
+    var dataURL = signaturePad.toDataURL();
+
+    // Send the signature data to Flask
+    fetch('/save_signature', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ signature: dataURL }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                isSignatureSaved = true; // เมื่อบันทึกลายเซ็นเรียบร้อยแล้วให้ตั้งค่าตัวแปร isSignatureSaved เป็น true
+                alert('บันทึกลายเซ็นสำเร็จ');
+            } else {
+                isSignatureSaved = false; // เมื่อไม่สามารถบันทึกลายเซ็นได้ให้ตั้งค่าเป็น false
+                alert('Failed to save signature!');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            isSignatureSaved = false; // เกิดข้อผิดพลาดในการส่งข้อมูลลายเซ็น
+            alert('Error saving signature!');
+        });
+});
+
+
+        var isSignatureSaved = false; // เพิ่มตัวแปรสำหรับเก็บสถานะการบันทึกลายเซ็น
+
+        document.getElementById('data-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        if (!isSignatureSaved) { // Check if the signature is saved
+            alert('กรุณาบันทึกลายเซ็นก่อนที่จะส่งข้อมูล');
+            return;
+        }
+
+        var formData = new FormData(this); // Get form data
+        // Send form data to Flask endpoint
+        fetch('/submit-form-pdpa1', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function (response) {
+            if (response.ok) {
+                window.location.href = '/page2';
+                return response.blob(); // Convert response to blob
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        })
+        .then(function (blob) {
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) { // Check if the browser is Internet Explorer
+            window.navigator.msSaveOrOpenBlob(blob, '_submitted_form.pdf'); // Use IE-specific method to download file
+        } else { // For other browsers
+            var url = window.URL.createObjectURL(blob); // Create URL for blob
+
+            var a = document.createElement('a');
+            a.href = url;
+            
+            // Set the file name with full names, replacing special characters with underscores
+            a.download = 'submitted_form.pdf'; 
+            
+            a.style.display = 'none';
+            document.body.appendChild(a);
+
+            a.click();
+
+            // For Chrome on Android, additional handling may be needed
+            if (navigator.userAgent.match(/Android/i) && navigator.userAgent.match(/Chrome/i)) {
+                // Delay removing the link to ensure download is complete
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+            } else {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }
+        }
+    })
+
+
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+    });
+
+    </script>
+</body>
+</html>

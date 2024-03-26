@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUDR</title>
+    <!-- เรียกใช้ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/2.3.2/signature-pad.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<nav class="navbar navbar-light bg-light" style="box-shadow: 0 8px 6px -6px black;">
+    <div class="container-fluid d-flex justify-content-start align-items-center">
+        <a class="navbar-brand" href="/">
+            <img src="{{ url_for('static', filename='img3.jpg') }}" alt="Your Image" class="responsive-img" style="max-width: 270px;">
+        </a>
+    </div>
+</nav>
+<body>
+    <div class="container mt-5">
+        <h4 class="text-center">แบบสำรวจความถูกต้องตามกฎหมายของ EUDR - ระดับเกษตรกร<br>EUDR Legality Survey - Farmer Level </h4>
+        <form id="data-form" action="/submit-form" method="post">
+            <br><br>
+            <div class="mb-3 d-flex align-items-center">
+                <div>
+                    <label for="num" class="form-label mb-0 mr-2">รหัสเอกสาร &nbsp;&nbsp;&nbsp;VD-</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="num" name="num" required>
+                </div>
+                <div>
+                    <label for="num1" class="form-label mb-0 mr-2">-PDPA-</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="num1" name="num1" required>
+                </div>
+                <div>
+                    <label for="num1" class="form-label mb-0 mr-2">-FL</label>
+                </div>
+            </div>  
+
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="Farm" class="form-label">Q.1 ชื่อและนามสกุลหรือบริษัท Name of Farmer / Company:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="text" class="form-control" id="Farm" name="Farm" required>
+                    </div>
+                </div>
+            </div>
+
+            <!--         q2         -->
+            <br>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="Farm1" class="form-label">Q.2มีสวนยางทั้งหมดกี่แปลง (ขั้นต่ำ: 0, สูงสุด: 1,000) <br> Number of natural rubber plots (Min: 0, Max: 1000)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="text" class="form-control" id="Farm1" name="Farm1" required>
+                    </div>
+                </div>
+            </div>
+
+            <!--           q3           -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.3 นอกจากตัวท่านแล้ว มีสมาชิกในครอบครัวอยู่ในพื้นที่นี้หรือไม่ <br> Other than the farmer, are there any additional household members staying on or around the land?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3_yes" value="yes">
+                    <label class="form-check-label" for="q3_yes">ใช่ (ไปที่ข้อ 3.1) Yes (Go to Q3.1)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3_no" value="no">
+                    <label class="form-check-label" for="q3_no">ไม่ (ไปที่ข้อ 4) No (Go to Q4)</label>
+                </div>
+            </div>
+            
+            <!-- <div class="mb-3">
+                <label class="form-check-label">
+                    Q.3 นอกจากตัวท่านแล้ว มีสมาชิกในครอบครัวอยู่ในพื้นที่นี้หรือไม่ <br> Other than the farmer, are there any additional household members staying on or around the land?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3">
+                    <label class="form-check-label" for="q3">ใช่ (ไปที่ข้อ 3.1) Yes (Go to Q3.1)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option3" id="option3">
+                    <label class="form-check-label" for="option3">ไม่ (ไปที่ข้อ 4) No (Go to Q4)</label>
+                </div>
+            </div> -->
+            <br>
+            <!--  sub Q3  -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q3.1	โปรดเลือกช่วงอายุของสมาชิกในครัวเรือน (อนุญาตให้มีหลายตัวเลือก):<br> Please select the age categories of the household members (multiple options allowed):
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option31" id="option31">
+                    <label class="form-check-label" for="option11" style="display: inline-block; margin-right: 5px;">อายุ 18 ปีขึ้นไป Above 18 years old          จำนวน </label>
+                    <input type="text" class="form-control form-control-sm" id="q31" name="q31" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="option11" style="display: inline-block; margin-right: 5px;">คน No. of people</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option311" id="option311">
+                    <label class="form-check-label" for="q311" style="display: inline-block; margin-right: 5px;">อายุระหว่าง 15-18 ปี (ไปที่ข้อ 3.2) Between 15-18 years old (Go to Q3.2)จำนวน</label>
+                    <input type="text" class="form-control form-control-sm" id="q311" name="q311" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="q311" style="display: inline-block; margin-right: 5px;">คน No. of people </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option3111" id="option3111">
+                    <label class="form-check-label" for="q3111" style="display: inline-block; margin-right: 5px;">อายุต่ำกว่า 15 ปี(ไปที่ข้อ 3.2) Under 15 years old  (Go to Q3.2)จำนวน</label>
+                    <input type="text" class="form-control form-control-sm" id="q3111" name="q3111" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="q3111" style="display: inline-block; margin-right: 5px;">คน No. of people</label>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.3.2 สำหรับผู้ที่อายุต่ำกว่า 18 ปี มีงานหรือช่วยงานบนที่ดินหรือไม่?<br> For those below 18 years old, do any of them work or help on the land?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option32" id="option3_yes" value="yes">
+                    <label class="form-check-label" for="option3_yes">ใช่ (ไปที่ข้อ 3.3 และ 3.4 ) Yes (Go to Q3.3 & Q3.4)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option32" id="option3_no" value="no">
+                    <label class="form-check-label" for="option3_no">ไม่ (ไปที่ข้อ 4) No (Go to Q4)</label>
+                </div>
+            </div>
+            <br>
+            <!--  -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q3.3 	สำหรับผู้ที่อายุต่ำกว่า 18 ปี ช่วยงานประเภทใดบ้าง? (อนุญาตให้มีหลายตัวเลือก)<br>
+                    For those below 18 years old, what type of tasks do they help with? (multiple options allowed) <br> 
+                    สำหรับผู้ที่อายุระหว่าง 15-18 ปี for those age between 15-18 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option33" id="option33">
+                    <label class="form-check-label" for="option33">
+                        กรีดยาง Tapping rubber tress</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option333" id="option333">
+                    <label class="form-check-label" for="option333">
+                        การกำจัดวัชพืชด้วยตนเองด้วยเครื่องมือ Weed clearing manually with tools</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option3333" id="option3333">
+                    <label class="form-check-label" for="option3333">
+                        การฉีดพ่นสารเคมี (สารกำจัดวัชพืช ฯลฯ ) Spraying chemicals (herbicide etc.)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o1" id="o1">
+                    <label class="form-check-label" for="o1">
+                        การแปรรูปยาง (ทำยางแผ่น) Rubber Processing (rubber sheets)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o2" id="o2">
+                    <label class="form-check-label" for="o2">
+                        เก็บรวบรวมน้ำยางจากถ้วย Collecting latex from cups</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o3" id="o3">
+                    <label class="form-check-label" for="o3">
+                        อื่นๆ (โปรดระบุ) Others (Please specify) </label>
+                    <input type="text" class="form-control form-control-sm" id="o4" name="o4"  style="width: 150px; font-size: 12px;">
+                </div>
+                <label class="form-check-label">
+                    สำหรับผู้ที่อายุต่ำกว่า 15 ปี for those age under 15 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o5" id="o5">
+                    <label class="form-check-label" for="o5">
+                        กรีดยาง Tapping rubber tress</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o6" id="o6">
+                    <label class="form-check-label" for="o6">
+                        การกำจัดวัชพืชด้วยตนเองด้วยเครื่องมือ Weed clearing manually with tools</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o7" id="o7">
+                    <label class="form-check-label" for="o7">
+                        การฉีดพ่นสารเคมี (สารกำจัดวัชพืช ฯลฯ ) Spraying chemicals (herbicide etc.)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o8" id="o8">
+                    <label class="form-check-label" for="o8">
+                        การแปรรูปยาง (ทำยางแผ่น) Rubber Processing (rubber sheets)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o9" id="o9">
+                    <label class="form-check-label" for="o9">
+                        เก็บรวบรวมน้ำยางจากถ้วย Collecting latex from cups</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o10" id="o10">
+                    <label class="form-check-label" for="o10">
+                        อื่นๆ (โปรดระบุ) Others (Please specify) </label>
+                    <input type="text" class="form-control form-control-sm" id="o11" name="o11"  style="width: 150px; font-size: 12px;">
+                </div>
+            </div>
+            <br>
+            <!--  -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q3.4 	สำหรับผู้ที่อายุต่ำกว่า 18 ปี ชั่วโมงทำงานเฉลี่ยต่อวันคือเท่าใด <br>For those under 18 years old, what is their average work hours per day
+                    <br>สำหรับผู้ที่อายุระหว่าง 15-18 ปี for those age between 15-18 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o12" id="o12" value="yes">
+                    <label class="form-check-label" for="o12">น้อยกว่า 3 ชั่วโมง (Less than 3 hours)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o12" id="o13" value="no">
+                    <label class="form-check-label" for="o13">มากกว่า 3 ชั่วโมง (More than 3 hours)</label>
+                </div>
+                <label class="form-check-label">
+                    สำหรับผู้ที่อายุต่ำกว่า 15 ปี for those age under 15 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o14" id="o14" value="yes">
+                    <label class="form-check-label" for="o14">น้อยกว่า 3 ชั่วโมง (Less than 3 hours)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o14" id="o15" value="no">
+                    <label class="form-check-label" for="o15">มากกว่า 3 ชั่วโมง (More than 3 hours)</label>
+                </div>
+            </div>
+            <br>
+            <!-- q4 -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4	มีคนงานในสวนหรือไม่ Are there any workers on the farm?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o16" id="o16" value="yes">
+                    <label class="form-check-label" for="o16">ใช่ (พนักงานประจำ/ไม่เป็นทางการ/แบ่งผลกำไร/พนักงานเต็มเวลาหรือนอกเวลา)
+                        (ไปที่ข้อ 4.1 ถึง 4.6)Yes (regular/casual/profit sharing/full or part time workers)(Go to Q4.1 to Q4.6)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o16" id="o17" value="no">
+                    <label class="form-check-label" for="o17">ไม่มีคนงาน (ไปที่ข้อ 5) No workers (Go to Q5)</label>
+                </div>
+            </div>
+            <br>
+            <!-- sub q4 -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4.1	ประเภทของการทำสัญญาจ้างงาน Type of consent given by workers to work on the land?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o18" id="o18" value="yes">
+                    <label class="form-check-label" for="o18">ข้อตกลงเป็นลายลักษณ์อักษร Written consent</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o18" id="o19" value="no">
+                    <label class="form-check-label" for="o19">ตกลงกันด้วยวาจา Verbal consent</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o18" id="o20" value="none">
+                    <label class="form-check-label" for="o20">ไม่มีข้อตกลงหรือสัญญา No Consent</label>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="Farm1" class="form-label">Q4.2 	รายได้เฉลี่ยต่อชั่วโมงของคนงาน (บาท) Average hourly income of workers (THB)</label>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input type="text" class="form-control form-control-sm" id="o21" name="o21" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="o21" style="display: inline-block; margin-right: 5px;">บาท (THB)</label>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4.3 	ชั่วโมงทำงานเฉลี่ยต่อสัปดาห์ของคนงาน Average weekly work hours of workers?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o22" id="o22" value="yes">
+                    <label class="form-check-label" for="o22">น้อยกว่า 48 ชม. Less than 48  hours</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o22" id="o23" value="no">
+                    <label class="form-check-label" for="o23">ระหว่าง 48 ชม.ถึง 84 ชม. Between 48  hours to 84 hours</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o22" id="o24" value="yes3">
+                    <label class="form-check-label" for="o24">มากกว่า 84 ชม. More than 84 hours</label>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4.4 อายุของคนงาน (อนุญาตหลายตัวเลือก) Age of the workers (multiple options allowed)
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o25" id="o25">
+                    <label class="form-check-label" for="o25" style="display: inline-block; margin-right: 5px;">อายุ 18 ปีขึ้นไป (ไปที่ข้อ 5) Above 18 years old (Go to Q5)จำนวน</label>
+                    <input type="text" class="form-control form-control-sm" id="o26" name="o26" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="o26" style="display: inline-block; margin-right: 5px;">คน No. of people </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o27" id="o27">
+                    <label class="form-check-label" for="o27" style="display: inline-block; margin-right: 5px;">อายุระหว่าง 15-18 ปี (ไปที่ข้อ 4.5และ 4.6) Between 15-18 years old (Go to Q4.5&4.6)  จำนวน</label>
+                    <input type="text" class="form-control form-control-sm" id="o28" name="o28" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="o28" style="display: inline-block; margin-right: 5px;">คน No. of people </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o29" id="o29">
+                    <label class="form-check-label" for="o29" style="display: inline-block; margin-right: 5px;">อายุต่ำกว่า 15 ปี (ไปที่ข้อ 4.5และ 4.6) Under 15 years old (Go to Q4.5&4.6) จำนวน</label>
+                    <input type="text" class="form-control form-control-sm" id="o299" name="o299" style="width: 150px; font-size: 12px; display: inline-block;">
+                    <label class="form-check-label" for="o299" style="display: inline-block; margin-right: 5px;">คน No. of people</label>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4.5 สำหรับผู้ที่อายุต่ำกว่า 18 ปี ช่วยงานประเภทใดบ้าง? (อนุญาตให้มีหลายตัวเลือก) <br>
+                    For those below 18 years old, what type of tasks do they help with? (multiple options allowed)<br> 
+                    สำหรับผู้ที่อายุระหว่าง 15-18 ปี for those age between 15-18 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o30" id="o30">
+                    <label class="form-check-label" for="o30">
+                        กรีดยาง Tapping rubber tress</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o31" id="o31">
+                    <label class="form-check-label" for="o31">
+                        การกำจัดวัชพืชด้วยตนเองด้วยเครื่องมือ Weed clearing manually with tools</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o32" id="o32">
+                    <label class="form-check-label" for="o32">
+                        การฉีดพ่นสารเคมี (สารกำจัดวัชพืช ฯลฯ ) Spraying chemicals (herbicide etc.)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o33" id="o33">
+                    <label class="form-check-label" for="o33">
+                        การแปรรูปยาง (ทำยางแผ่น) Rubber Processing (rubber sheets)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o34" id="o34">
+                    <label class="form-check-label" for="o34">
+                        เก็บรวบรวมน้ำยางจากถ้วย Collecting latex from cups</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o35" id="o35">
+                    <label class="form-check-label" for="o35">
+                        อื่นๆ (โปรดระบุ) Others (Please specify) </label>
+                    <input type="text" class="form-control form-control-sm" id="o36" name="o36"  style="width: 150px; font-size: 12px;">
+                </div>
+                <label class="form-check-label">
+                    สำหรับผู้ที่อายุต่ำกว่า 15 ปี for those age under 15 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o37" id="o37">
+                    <label class="form-check-label" for="o37">
+                        กรีดยาง Tapping rubber tress</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o38" id="o38">
+                    <label class="form-check-label" for="o38">
+                        การกำจัดวัชพืชด้วยตนเองด้วยเครื่องมือ Weed clearing manually with tools</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o39" id="o39">
+                    <label class="form-check-label" for="o39">
+                        การฉีดพ่นสารเคมี (สารกำจัดวัชพืช ฯลฯ ) Spraying chemicals (herbicide etc.)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o40" id="o40">
+                    <label class="form-check-label" for="o40">
+                        การแปรรูปยาง (ทำยางแผ่น) Rubber Processing (rubber sheets)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o41" id="o41">
+                    <label class="form-check-label" for="o41">
+                        เก็บรวบรวมน้ำยางจากถ้วย Collecting latex from cups</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="o42" id="o42">
+                    <label class="form-check-label" for="o42">
+                        อื่นๆ (โปรดระบุ) Others (Please specify) </label>
+                    <input type="text" class="form-control form-control-sm" id="o43" name="o43"  style="width: 150px; font-size: 12px;">
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q4.6 สำหรับผู้ที่อายุต่ำกว่า 18 ปี ชั่วโมงทำงานเฉลี่ยต่อวันคือเท่าใด<br>For those under 18 years old, what is their average work hours per day
+                    <br>สำหรับผู้ที่อายุระหว่าง 15-18 ปี for those age between 15-18 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o44" id="o44" value="yes">
+                    <label class="form-check-label" for="o44">น้อยกว่า 3 ชั่วโมง (Less than 3 hours)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o44" id="o45" value="no">
+                    <label class="form-check-label" for="o45">มากกว่า 3 ชั่วโมง (More than 3 hours)</label>
+                </div>
+                <label class="form-check-label">
+                    สำหรับผู้ที่อายุต่ำกว่า 15 ปี for those age under 15 years old
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o46" id="o46" value="yes">
+                    <label class="form-check-label" for="o46">น้อยกว่า 3 ชั่วโมง (Less than 3 hours)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o46" id="o47" value="no">
+                    <label class="form-check-label" for="o47">มากกว่า 3 ชั่วโมง (More than 3 hours)</label>
+                </div>
+            </div>
+
+            <br>
+            <!--   q6   -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                   Q.5 พวกเขาเป็นแรงงานต่างด้าวหรือเปล่า Are they any foreign workers?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o48" id="o48" value="yes">
+                    <label class="form-check-label" for="o48">ต่างด้าวอย่างน้อย 1 คน Yes, at least 1 foreign worker</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o48" id="o49" value="no">
+                    <label class="form-check-label" for="o49">ไม่ใช่ มีแต่คนทำงานในพื้นที่เท่านั้น No, only local workers</label>
+                </div>
+            </div>
+            <br>
+            <!--   q5   -->
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q6	แรงงานต่างด้าวจำเป็นต้องจ่ายค่าหลักประกันใดเพื่อทำงานบนที่ดินหรือไม่ <br>Are foreign workers required to pay any fees to secure work on the land?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o50" id="o50" value="yes">
+                    <label class="form-check-label" for="o50">เงินประกัน (การเงิน ทรัพย์สินส่วนบุคคล หรือทรัพย์สิน) Security Deposit (Financial, personal property or belongings)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o50" id="o51" value="yes1">
+                    <label class="form-check-label" for="o51">ค่าสมัคร (รวมค่านายหน้าด้วย) Recruitment fee (including to agent)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="o50" id="o52" value="yes2">
+                    <label class="form-check-label" for="o52">ไม่เก็บหลักประกันใดๆ Do not collect any</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="photo" class="form-label">แนบเอกสาร</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="file" class="form-control" id="photo" name="photo">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วัตถุประสงค์ของการสำรวจนี้คือเพื่อทำความเข้าใจห่วงโซ่อุปทานของยางธรรมชาติและความยั่งยืน 
+                    การเข้าร่วมการสำรวจนี้เป็นไปโดยสมัครใจคุณสามารถถอนตัวจากการสำรวจนี้ได้ตลอดเวลาโดยติดต่อ eudr@tongthai.co.th หรือ (02) 390-2051 
+                    เราไม่ขายข้อมูลส่วนบุคคลเกี่ยวกับคุณซึ่งเก็บรวบรวมโดยเกี่ยวข้องกับแบบสำรวจนี้หรืออย่างอื่น
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purpose of this survey is to understand the natural rubber supply chain and its sustainability. 
+                    Your participation in this survey is voluntary. You may withdraw from this survey at any time by contacting eudr@tongthai.co.th or (02) 390-2051. 
+                    We do not sell the Personal Information about you which is collected in connection with this survey or otherwise.
+                </p>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้าได้ให้ข้อมูลที่ครบถ้วนแล้ว และยินยอมให้ใช้และเปิดเผยข้อมูลแบบสำรวจนี้ เป็นไปตาม
+                    ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)                    
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that the information I have provided above is to the best of my knowledge and belief. 
+                     I have consent to the collection, use and disclosure of this survey based on the Personal Data Protection Act (PDPA).
+                </p>
+            </div>
+  <br><br>
+                <h3>ลายเซ็น</h3>
+                <canvas name="signature" id="signature" width="400" height="200"></canvas>
+                <br>
+                <div class="buttons-container"> 
+                    <button id="submit-bu" type="button" class="btn btn-primary btn-secondary" >บันทึกลายเซ็น</button>
+                    <button id="clear-button" type="button" class="btn btn-primary btn-danger">ลบลายเซ็น</button>
+
+                </div>
+                
+                <div class="text-center">
+                    <br><br><br>
+                    <button id="submit-button" type="submit" class="btn btn-primary btn-lg btn-block btn-purple " style="width: 50%;">ยืนยันการส่งข้อมูล</button>
+                </div>
+
+
+            
+            <!-- ข้อมูลอื่น ๆ ของฟอร์ม -->
+            <!-- ใส่ส่วนที่เหลือของฟอร์มที่ต้องการ -->
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <!-- เรียกใช้ Bootstrap JS และ Popper.js เพื่อให้สามารถใช้งานส่วนที่ต้องการของ Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('input[type=radio]').forEach(function(radio) {
+            radio.addEventListener('click', function() {
+                if (this.previousValue === this.value) {
+                    this.checked = false;
+                    this.previousValue = null;
+                } else {
+                    this.previousValue = this.value;
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize Signature Pad
+        var canvas = document.getElementById('signature');
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'black',
+            minWidth: 1,
+            maxWidth: 3
+        });
+
+        // ปรับขนาด canvas เมื่อเกิดการเปลี่ยนขนาดหน้าต่าง
+        window.addEventListener('resize', resizeCanvas);
+
+        function resizeCanvas() {
+            var ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            signaturePad.clear(); // เคลียร์ลายเซ็นเมื่อขนาด canvas เปลี่ยน
+        }
+
+        // เรียกฟังก์ชัน resizeCanvas เพื่อปรับขนาด canvas เมื่อโหลดหน้าเว็บ
+        resizeCanvas();
+
+        document.getElementById('clear-button').addEventListener('click', function () {
+            signaturePad.clear();
+        });
+        document.getElementById('submit-bu').addEventListener('click', function () {
+    // Get the signature data URL
+    var dataURL = signaturePad.toDataURL();
+
+    // Send the signature data to Flask
+    fetch('/save_signature', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ signature: dataURL }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                isSignatureSaved = true; // เมื่อบันทึกลายเซ็นเรียบร้อยแล้วให้ตั้งค่าตัวแปร isSignatureSaved เป็น true
+                alert('บันทึกลายเซ็นสำเร็จ');
+            } else {
+                isSignatureSaved = false; // เมื่อไม่สามารถบันทึกลายเซ็นได้ให้ตั้งค่าเป็น false
+                alert('Failed to save signature!');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            isSignatureSaved = false; // เกิดข้อผิดพลาดในการส่งข้อมูลลายเซ็น
+            alert('Error saving signature!');
+        });
+});
+
+
+        var isSignatureSaved = false; // เพิ่มตัวแปรสำหรับเก็บสถานะการบันทึกลายเซ็น
+
+        document.getElementById('data-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        if (!isSignatureSaved) { // Check if the signature is saved
+            alert('กรุณาบันทึกลายเซ็นก่อนที่จะส่งข้อมูล');
+            return;
+        }
+
+        var formData = new FormData(this); // Get form data
+        // Send form data to Flask endpoint
+        fetch('/submit-form-farmer', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function (response) {
+            if (response.ok) {
+                window.location.href = '/page2';
+                return response.blob(); // Convert response to blob
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        })
+        .then(function (blob) {
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) { // Check if the browser is Internet Explorer
+            window.navigator.msSaveOrOpenBlob(blob,'_submitted_form.pdf'); // Use IE-specific method to download file
+        } else { // For other browsers
+            var url = window.URL.createObjectURL(blob); // Create URL for blob
+
+            var a = document.createElement('a');
+            a.href = url;
+            
+            // Set the file name with full names, replacing special characters with underscores
+            a.download = '_submitted_form.pdf'; 
+            
+            a.style.display = 'none';
+            document.body.appendChild(a);
+
+            a.click();
+
+            // For Chrome on Android, additional handling may be needed
+            if (navigator.userAgent.match(/Android/i) && navigator.userAgent.match(/Chrome/i)) {
+                // Delay removing the link to ensure download is complete
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+            } else {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }
+        }
+    })
+
+
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+    });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(247, 189, 255); /* Purple background */
+}
+.container {
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Add shadow */
+    transform: translateY(-10px); /* Move container up */
+}
+.responsive-img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    align-items: left;
+    margin: 0 auto; /* จะแสดงภาพตรงกลางของหน้าจอ */
+}
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+}
+.btn-purple {
+    background-color: rgb(233, 121, 233);
+    border-color: purple;
+    width: 100%; /* Adjust button width */
+}
+
+.btn-purple:hover {
+    background-color: #7e7e7e; /* เมื่อโฮเวอร์บนปุ่ม */
+    border-color: #7e7e7e;
+}
+#signature {
+    border: 2px solid rgb(244, 117, 244);
+    width: 300px;
+    height: 200px;
+    
+    display: block;
+    margin: 0 auto; /* จัดตำแหน่งให้อยู่ตรงกลาง */
+}
+.slightly-moved-text {
+    text-indent: 5em; /* ขยับข้อความทางขวาเล็กน้อย */
+}
+@media (max-width: 767px) {
+    .centered-text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

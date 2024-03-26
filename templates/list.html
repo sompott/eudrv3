@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder File List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Style for alternating rows */
+        .alternating-rows > div:nth-child(even) {
+            background-color: #f8f9fa; /* Gray color for even rows */
+        }
+        .alternating-rows > div:nth-child(odd) {
+            background-color: #ffffff; /* White color for odd rows */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>เลือกเอกกสาร :</h2>
+        <form action="/list" method="post" class="form-inline">
+            <div class="form-group mr-2">
+                <select class="form-control" name="folder_name">
+                    <option value="pdfs_pdpa">PDPA - สำหรับ สหกรณ์ หรือ พ่อค้า</option>
+                    <option value="pdpa">PDPA - สำหรับเกษตรกร</option>
+                    <option value="pdfs_farmer">ระดับเกษตรกร-Farmer Level</option>
+                    <option value="pdfs">ระดับแปลง-Plot Level</option>
+                    <!-- เพิ่มตามความจำเป็น -->
+                </select>
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="sec1" class="mr-2">รหัสสมาชิก&nbsp;&nbsp;&nbsp;:</label>
+                <input type="text" class="form-control" id="sec1" name="sec1">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary">ค้นหา</button>
+        </form>
+
+        {% if files %}
+           <br>
+            <div class="alternating-rows">
+                {% for file in files %}
+                    <div class="row mb-2">
+                        <div class="col">
+                            <a href="/download_file/{{ folder }}/{{ subfolder }}/{{ file }}" class="btn btn-secondary">{{ file }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No PDF files found.</p>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

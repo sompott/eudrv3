@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUDR</title>
+    <!-- เรียกใช้ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/2.3.2/signature-pad.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<nav class="navbar navbar-light bg-light" style="box-shadow: 0 8px 6px -6px black;">
+    <div class="container-fluid d-flex justify-content-start align-items-center">
+        <a class="navbar-brand" href="/">
+            <img src="{{ url_for('static', filename='img3.jpg') }}" alt="Your Image" class="responsive-img" style="max-width: 270px;">
+        </a>
+    </div>
+</nav>
+<body>
+    <div class="container mt-5">
+        <h4 class="text-center">แบบสำรวจความถูกต้องตามกฎหมายของ EUDR – ระดับแปลง<br>EUDR Legality Survey - Plot Level </h4>
+        <form id="data-form" action="/submit-form" method="post">
+            <br><br>
+            <div class="mb-3 d-flex align-items-center">
+                <div>
+                    <label for="num" class="form-label mb-0 mr-2">รหัสเอกสาร &nbsp;&nbsp;&nbsp;VD-</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="num" name="num" required>
+                </div>
+                <div>
+                    <label for="num1" class="form-label mb-0 mr-2">-</label>
+                </div>
+            
+                <div>
+                    <input type="number" class="form-control" id="num1" name="num1" required>
+                </div>
+
+                <!-- <div>
+                    <input type="number" class="form-control" id="num2" name="num2" required>
+                </div> -->
+                <div>
+                    <label for="num3" class="form-label mb-0 mr-2">&nbsp;&nbsp;&nbsp;&nbsp;-(1)-(1)&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="num3" name="num3" required>
+                </div>
+            </div> 
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="full-name" class="form-label">Q.1 ชื่อและนามสกุลหรือบริษัท Name of Farmer / Company:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="text" class="form-control" id="full-name" name="full-name" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3 d-flex align-items-center">
+                <div>
+                    <label for="full-name2" class="form-label mb-0 mr-2">Q.2 เลขรหัสแปลง Plot No.&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="full-name2" name="full-name2" required>
+                </div>
+                <div>
+                    
+                    <label for="full-name21" class="form-label mb-0 mr-2">&nbsp;&nbsp;&nbsp;&nbsp;ที่อยู่ Address.&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div>
+                    <input type="text" class="form-control" id="full-name21" name="full-name21" required>
+                </div>
+            </div>
+            
+            <div class="mb-3 d-flex align-items-center">
+                <div>
+                    <label for="full-name3" class="form-label mb-0 mr-2">Q.3 การใช้ที่ดินในการผลิตยางพารา (ต้นโต) คิดเป็นเปอร์เซ็นต์&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="full-name3" name="full-name3" required>
+                </div>
+                <div>
+                    <label for="full-name2" class="form-label mb-0 mr-2">%&nbsp;/</label>
+                </div>
+                <div>
+                    <label for="full-name21" class="form-label mb-0 mr-2">&nbsp;&nbsp;&nbsp;&nbsp;อายุต้นยาง&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div>
+                    <input type="number" class="form-control" id="full-name31" name="full-name31" required>
+                </div>
+                <div>
+                    <label for="full-name31" class="form-label mb-0 mr-2">ปี</label>
+                </div>
+            </div>
+            
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="full-name4" class="form-label">Q.4 ปริมาณการผลิตน้ำยางเฉลี่ยต่อเดือนจากแปลงที่ดินนี้ (กก.) คือเท่าใด?<br>What is the monthly average wet production volume from this plot of land (kg)? </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="number" class="form-control" id="full-name4" name="full-name4" required><p>กก./เดือน (kg/month)</p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.5 เอกสารสิทธิ์ในการใช้ที่ดิน (ประเภทการอนุญาตให้ใช้ที่ดิน)<br>
+                    Land rights (Type of permission to use the land) </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option1" id="option1">
+                    <label class="form-check-label" for="option1">
+                        เอกสารสิทธิ์ที่ดิน (ไปที่ข้อ 6)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option2" id="option2">
+                    <label class="form-check-label" for="option2">การใช้ที่ดินได้รับการยอมรับโดยไม่มีเอกสาร (ไปที่ข้อ 7)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option3" id="option3">
+                    <label class="form-check-label" for="option3">การใช้ที่ดินโดยไม่ได้รับอนุญาต (ไปที่ข้อ 8)</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.6 ประเภทของเอกสารสิทธิ์<br>
+                    Type of documentation </label>
+
+                <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="option4" id="option4">
+                        <label class="form-check-label mr-2" for="option4">น.ส.4 โฉนด (Nor Sor 4 – Land Deed) เลขที่เอกสาร Doc No</label>
+                        <input type="text" class="form-control form-control-sm" id="full-name41" name="full-name41"  style="width: 150px; font-size: 12px;">
+
+                </div>
+          
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option5" id="option5">
+                    <label class="form-check-label" for="option5">น.ส.3/น.ส.3 ก. (Nor Sor 3/Nor Sor 3 Gor) เลขที่เอกสาร Doc No</label>
+                    <input type="text" class="form-control form-control-sm" id="full-name51" name="full-name51"  style="width: 150px; font-size: 12px;">
+
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option6" id="option6">
+                    <label class="form-check-label" for="option6">ส.ป.ก. (Sor Por Kor) เลขที่เอกสาร Doc No </label>
+                    <input type="text" class="form-control form-control-sm" id="full-name61" name="full-name61"  style="width: 150px; font-size: 12px;">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option7" id="option7">
+                    <label class="form-check-label" for="option7">ท.บ.5 (Tor Bor 5) เลขที่เอกสาร Doc No </label>
+                    <input type="text" class="form-control form-control-sm" id="full-name71" name="full-name71"  style="width: 150px; font-size: 12px;">
+                </div>
+                <!-- <input type="text" class="form-control form-control-sm" id="full-name41" name="full-name41" required style="width: 150px; font-size: 12px;"> -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option8" id="option8">
+                    <label class="form-check-label" for="option8">อื่นๆ Other:  เลขที่เอกสาร Doc No </label>
+                    <input type="text" class="form-control form-control-sm" id="full-name81" name="full-name81"  style="width: 150px; font-size: 12px;">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.7 ขอบนิติกรรมการครอบครองที่ดินได้อย่างไร <br> How is land ownership legally recognized?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option9" id="option9">
+                    <label class="form-check-label" for="option9">
+                        มีการตีระเบียบหรือทำเค้าโครงสร้างกำหนดเขตแบบดั้งเดิม (เช่น หิน/เสา/ต้นไม้)<br>
+                        Physical customary demarcation (e.g. stone/pillar/tree)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option10" id="option10">
+                    <label class="form-check-label" for="option10">ครอบครองท่านอยู่บนที่ดินมานานนับเป็นเวลากี่ปี <br>(Number of years of long-term occupation)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option11" id="option11">
+                    <label class="form-check-label" for="option11">อื่นๆ Others: </label>
+                    <input type="text" class="form-control form-control-sm" id="full-name111" name="full-name111"  style="width: 150px; font-size: 12px;">
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.8 มีพืชชนิดใดบ้างที่ปลูกบนพื้นที่ <br>Are any crops planted on peat?
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option12" id="option12">
+                    <label class="form-check-label" for="option12">
+                        ใช่ Yes  </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option13" id="option13">
+                    <label class="form-check-label" for="option13">ไม่มี No</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.9 สารเคมีใดต่อไปนี้ถูกนำมาใช้บนที่ดิน? (สามารถเลือกได้มากกว่าหนึ่งตัวเลือก)<br>
+                    Which of the following chemicals are used on the land? (multiple options allowed) 
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option14" id="option14">
+                    <label class="form-check-label" for="option14">
+                        พาราควอต (Paraquat)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option15" id="option15">
+                    <label class="form-check-label" for="option15">
+                        ไกลโฟเสต/ราวด์อัพ (Glyphosate/Roundup)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option16" id="option16">
+                    <label class="form-check-label" for="option16">
+                        2-4D</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option17" id="option17">
+                    <label class="form-check-label" for="option17">
+                        TMTD/ZnO (TZ)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option18" id="option18">
+                    <label class="form-check-label" for="option18">
+                        คลอร์พรีฟอส (Chlorpyrifos)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option19" id="option19">
+                    <label class="form-check-label" for="option19">
+                        อื่นๆ (โปรดระบุ) </label>
+                    <input type="text" class="form-control form-control-sm" id="full-name199" name="full-name199"  style="width: 150px; font-size: 12px;">
+
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option20" id="option20">
+                    <label class="form-check-label" for="option20">
+                        ไม่มีการใช้สารเคมีใดๆ ข้างต้น (Do not use any of the above chemicals)</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-check-label">
+                    Q.10 ขณะนี้มีข้อพิพาทเรื่องที่ดินกับชนพื้นเมืองหรือกลุ่มพื้นเมืองที่ยังไม่ได้รับการแก้ไขหรือไม่?<br>
+                    Are there currently any unresolved land disputes with indigenous or native groups? 
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option21" id="option21">
+                    <label class="form-check-label" for="option21">             
+                        ใช่ (ไปที่ข้อ 10.1) Yes (Go to Q.10.1)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="option22" id="option22">
+                    <label class="form-check-label" for="option22">
+                        ไม่มี No (สิ้นสุดการสำรวจ) No (End of Survey)</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <!-- Row for label -->
+                <div class="row">
+                    <!-- Column for label -->
+                    <div class="col-sm-12 col-md-4">
+                        <!-- Question label -->
+                        <label for="comment" class="form-label">Q10.1 โปรดอธิบายรายละเอียดเกี่ยวกับข้อพิพาทเรื่องที่ดิน Please elaborate on the land dispute </label>
+                    </div>
+                </div>
+                <!-- Row for input field -->
+                <div class="row">
+                    <!-- Column for input field -->
+                    <div class="col-sm-12 col-md-8">
+                        <!-- Input field -->
+                        <textarea class="form-control" id="comment" name="comment" rows="4" ></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="photo" class="form-label">Q.11 ถ่ายรูปแปลงที่ดิน</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="file" class="form-control" id="photo" name="photo">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="photo" class="form-label">Q.12 เอกสารสิทธิ์ (ทะเบียนกษตร,ทะเบียน ก.ย.ท)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <input type="file" class="form-control" id="photo1" name="photo1">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วัตถุประสงค์ของการสำรวจนี้คือเพื่อเข้าใจโซลูชันการผลิตยางธรรมชาติและความยั่งยืนของการเกษตรยางพารา 
+                    การเข้าร่วมในการสำรวจนี้เป็นอิสระ คุณสามารถถอนตัวออกจากการสำรวจได้ตลอดเวลาโดยการติดต่อที่ eudr@tongthai.co.th
+                    หรือ (02) 390-2051 โดยเราไม่มีความจำเป็นที่จะขายข้อมูลส่วนบุคคลเกี่ยวกับคุณที่เก็บรวบรวมในการสำรวจนี้หรือในทางอื่น
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purpose of this survey is to understand the natural rubber supply chain and its 
+                    sustainability.Your participation in this survey is voluntary.You may withdraw from this survey at
+                    any time by contacting eudr@tongthai.co.th or (02) 390-2051. We do not sell the Personal Information 
+                    about you which is collected in connection with this survey or otherwise.
+                </p>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้าได้ให้ข้อมูลทั้งหมดแล้ว และยินยอมให้ใช้และเปิดเผยข้อมูลในการสำรวจนี้ เป็นไปตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that the information I have provided above is to the best of my knowledge 
+                    and belief.  I have consent to the collection, use and disclosure of this survey based on the Personal
+                     Data Protection Act (PDPA). 
+                </p>
+            </div>
+  <br><br>
+                <h3>ลายเซ็น</h3>
+                <canvas name="signature" id="signature" width="400" height="200"></canvas>
+                <br>
+                <div class="buttons-container"> 
+                    <button id="submit-bu" type="button" class="btn btn-primary btn-secondary" >บันทึกลายเซ็น</button>
+                    <button id="clear-button" type="button" class="btn btn-primary btn-danger">ลบลายเซ็น</button>
+
+                </div>
+                
+                <div class="text-center">
+                    <br><br><br>
+                    <button id="submit-button" type="submit" class="btn btn-primary btn-lg btn-block btn-purple " style="width: 50%;">ยืนยันการส่งข้อมูล</button>
+                </div>
+
+
+            
+            <!-- ข้อมูลอื่น ๆ ของฟอร์ม -->
+            <!-- ใส่ส่วนที่เหลือของฟอร์มที่ต้องการ -->
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <!-- เรียกใช้ Bootstrap JS และ Popper.js เพื่อให้สามารถใช้งานส่วนที่ต้องการของ Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+    <script>
+        // Initialize Signature Pad
+        var canvas = document.getElementById('signature');
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'black',
+            minWidth: 1,
+            maxWidth: 3
+        });
+
+        // ปรับขนาด canvas เมื่อเกิดการเปลี่ยนขนาดหน้าต่าง
+        window.addEventListener('resize', resizeCanvas);
+
+        function resizeCanvas() {
+            var ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            signaturePad.clear(); // เคลียร์ลายเซ็นเมื่อขนาด canvas เปลี่ยน
+        }
+
+        // เรียกฟังก์ชัน resizeCanvas เพื่อปรับขนาด canvas เมื่อโหลดหน้าเว็บ
+        resizeCanvas();
+
+        document.getElementById('clear-button').addEventListener('click', function () {
+            signaturePad.clear();
+        });
+        document.getElementById('submit-bu').addEventListener('click', function () {
+    // Get the signature data URL
+    var dataURL = signaturePad.toDataURL();
+
+    // Send the signature data to Flask
+    fetch('/save_signature', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ signature: dataURL }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                isSignatureSaved = true; // เมื่อบันทึกลายเซ็นเรียบร้อยแล้วให้ตั้งค่าตัวแปร isSignatureSaved เป็น true
+                alert('บันทึกลายเซ็นสำเร็จ');
+            } else {
+                isSignatureSaved = false; // เมื่อไม่สามารถบันทึกลายเซ็นได้ให้ตั้งค่าเป็น false
+                alert('Failed to save signature!');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            isSignatureSaved = false; // เกิดข้อผิดพลาดในการส่งข้อมูลลายเซ็น
+            alert('Error saving signature!');
+        });
+});
+
+
+        var isSignatureSaved = false; // เพิ่มตัวแปรสำหรับเก็บสถานะการบันทึกลายเซ็น
+
+        document.getElementById('data-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        if (!isSignatureSaved) { // Check if the signature is saved
+            alert('กรุณาบันทึกลายเซ็นก่อนที่จะส่งข้อมูล');
+            return;
+        }
+
+        var formData = new FormData(this); // Get form data
+        // Send form data to Flask endpoint
+        fetch('/submit-form', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function (response) {
+            if (response.ok) {
+                window.location.href = '/page2';
+                return response.blob(); // Convert response to blob
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        })
+        .then(function (blob) {
+        var fullName = document.getElementById('full-name').value.trim().replace(/\s+/g, '_'); // Get the value of input with id "full-name"
+        var fullName1 = document.getElementById('full-name2').value.trim().replace(/\s+/g, '_'); // Get the value of input with id "full-name2"
+
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) { // Check if the browser is Internet Explorer
+            window.navigator.msSaveOrOpenBlob(blob, fullName + '_submitted_form.pdf'); // Use IE-specific method to download file
+        } else { // For other browsers
+            var url = window.URL.createObjectURL(blob); // Create URL for blob
+
+            var a = document.createElement('a');
+            a.href = url;
+            
+            // Set the file name with full names, replacing special characters with underscores
+            a.download = fullName + '-' + fullName1 + '.pdf'; 
+            
+            a.style.display = 'none';
+            document.body.appendChild(a);
+
+            a.click();
+
+            // For Chrome on Android, additional handling may be needed
+            if (navigator.userAgent.match(/Android/i) && navigator.userAgent.match(/Chrome/i)) {
+                // Delay removing the link to ensure download is complete
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+            } else {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }
+        }
+    })
+
+
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+    });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUDR</title>
+    <!-- เรียกใช้ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/2.3.2/signature-pad.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light" style="box-shadow: 0 8px 6px -6px black;">
+        <div class="container-fluid d-flex justify-content-start align-items-center">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='img3.jpg') }}" alt="Your Image" class="responsive-img" style="max-width: 270px;">
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <!-- <img src="{{ url_for('static', filename='img.jpg') }}" alt="Your Image" class="responsive-img"><br><br> -->
+        <h4 class="text-center">ระบบแบบสำรวจความถูกต้องตามกฎหมายของ EUDR<br><br></h4><br>
+        <div class="buttons-container">
+            <a href="/pdpa" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">PDPA - สำหรับ สหกรณ์ หรือ พ่อค้า</a>
+            <a href="/pdpa1" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">PDPA - สำหรับเกษตรกร</a>           
+            <a href="/farmer" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">ระดับเกษตรกร-Farmer Level</a>
+            <a href="/plotlevel" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">ระดับแปลง-Plot Level</a>
+            <a href="/list" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">เอกสาร eudr</a>
+            <!-- <a href="/pdf" class="btn btn-primary btn-lg btn-block btn-purple" style="width: 50%;">เอกสาร</a> -->
+
+        </div><br><br>
+    </div>
+</body>
+</html>
